@@ -1,0 +1,85 @@
+<nav class="navbar-default navbar-static-side  " role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+
+                           <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">创新奇智</strong>
+
+              <!--                 </span> <span class="text-muted text-xs block">
+                                {% ifequal  user.is_superuser  1 %}
+                                    管理员 {% else %} 普通用户 {% endifequal %}
+                                <b class="caret"></b></span> </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs"> 
+                        <li>"修改密码</li>
+                    </ul> -->
+                </div>
+                <div class="logo-element">
+                    创新奇智
+                </div>
+            </li>
+            <li>
+            <i class="fa fa-dashboard"></i> <span class="nav-label">首页</span>
+             </a>
+
+            </li>
+            <li class="{{ asset_active }}">
+                <a href="#"><i class="fa fa-inbox"></i> <span class="nav-label">主机资产</span>
+                    <span class="fa arrow"> </span></a>
+                <ul class="nav nav-second-level">
+                    <li class="{{ asset_list_active }}"><a href="/asset/alihost/">阿里云主机</a></li>
+                    <li class="{{ asset_user_list_active }}"><a href="/asset/alihost/">百度云主机</a></li>
+                      <li class="{{ asset_project_list_active }}"><a href="/asset/alihost/">AWS云</a></li>
+                     <li class="{{ asset_business_list_active }}"><a href="/asset/alihost/">物理机房</a></li>
+
+
+                </ul>
+            </li>
+            <li class="{{ tasks_active }}">
+                <a href="/asset/jifang/"><i class="fa  fa-coffee"></i> <span class="nav-label">机房资产</span>
+                    <span class="fa arrow"> </span></a>
+            </li>
+
+                    <li class="{{ crontab_active }}">
+                <a href="#"><i class="fa  fa-desktop"></i> <span class="nav-label">定时任务</span>
+                    <span class="fa arrow"> </span></a>
+                <ul class="nav nav-second-level">
+                    <li class="{{ crontab_crontabs_active }}"></li>
+                     <li class="{{ crontab_intervals_active }}"></li>
+                      <li class="{{ crontab_periodictasks_active }}"></li>
+                     <li class="{{ crontab_periodictasks_result_active }}"></li>
+                </ul>
+            </li>
+
+
+         {% ifequal  user.is_superuser  1 %}
+            <li class="{{ name_active }}">
+                <a href="#"><i class="fa fa-group"></i> <span class="nav-label">系统用户</span>
+                    <span class="fa arrow"> </span></a>
+                <ul class="nav nav-second-level">
+                    <li class="{{ name_list_active }}"></li>
+                      <li class="{{ groups_list_active }}"></li>
+                     <li class="{{  groups_object_list_active }}">权限管理</li>
+
+
+                </ul>
+            </li>
+
+            <li class="{{ index_active }}">
+                <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">后台管理</span>
+                    <span class="fa arrow"> </span></a>
+                <ul class="nav nav-second-level">
+                    <li class="{{ index_login_active }}"></li>
+                    <li><a href="/admin" target="_blank">管理界面</a></li>
+
+                </ul>
+            </li>
+        {% endifequal %}
+        </ul>
+
+    </div>
+</nav>

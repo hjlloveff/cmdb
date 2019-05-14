@@ -1,0 +1,24 @@
+ <div>
+        <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
+
+            <h1>{{ obj.hostname}}</h1>
+            <h5>{{ obj.id }}</h5>
+            <h5>{{ obj.name }}</h5>
+
+        </div>
+
+    </div>
+
+     <ul>
+                {% for row in all_hostinfo %}
+                     <h1>{{ row.hostname}}</h1>
+                      <h5>{{ obj.id }}</h5>
+                     <h5>{{ obj.name }}</h5>
+                    <li>
+                        <a href="/asset/detail-{{ row.id }}/">详细</a> |
+                        <a href="/cmdb/userdel-{{ row.id }}/">删除</a> |
+                        <a href="/cmdb/useredit-{{ row.id }}/">编辑</a>
+
+                    </li>
+                {% endfor %}
+            </ul>

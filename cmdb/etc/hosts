@@ -1,0 +1,2 @@
+localhost ansible_connection=local
+test ansible_connection=smart ansible_host=47.254.90.92 ansible_user=Evan ansible_ssh_pass=zw123xx
