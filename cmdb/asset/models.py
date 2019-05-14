@@ -27,6 +27,7 @@ class hostinfo(models.Model):
       weihuren = models.CharField(max_length=128,null=True,unique=True)
       neicun = models.CharField(max_length=64, null=True, unique=True)
       cpu = models.CharField(max_length=64, null=True, unique=True)
-      shujuzhongxin = models.CharField(max_length=128, null=True, unique=True)
+      shujuzhongxin = models.CharField(max_length=128, null=True)
+      xiangmu = models.CharField(max_length=128, null=True)
       hostaccsess_id = models.ForeignKey(to="hostaccessinfo",to_field="id",on_delete=models.CASCADE,null=True)
       hostitem_id = models.ForeignKey(to="iteminfo",to_field="id",on_delete=models.CASCADE,null=True)

@@ -11,4 +11,6 @@ urlpatterns = [
     path('alihost/', views.alihost, name="alihost"),
     path('detail-<nid>/', views.detail),
     path('edit-<nid>/', views.edit),
+    path('jifangedit-<nid>/', views.jifangedit),
+    path('upload/',views.upload, name='upload')
 ]
