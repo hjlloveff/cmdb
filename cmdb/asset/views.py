@@ -63,14 +63,22 @@ def jifangedit(request,nid):
 def upload(request):
      date= {}
      csv_file = request.FILES["csv_file"]
-     file_data = csv_file.read().decode("utf-8")
+     file_data = csv_file.read().decode("utf-8",errors='ignore')
      lines = file_data.split("\n")
         # loop over the lines and save them in db. If error , store as string and then display
      for line in lines:
           fields = line.split(",")
-          data_dict = {}
-          print (type(fields))
-     return redirect('/asset/jifang/')
+          if fields[0] == 'public_ip' or fields[0] == '':
+             print ('error')
+             continue
+          else:
+              print (fields)
+              if models.hostinfo.objects.filter(public_ip=fields[0]).first():
+                 models.hostinfo.objects.filter(public_ip=fields[0]).update(private_ip=fields[1],display_name=fields[2],data_center=fields[3])
+              else:
+                  models.hostinfo.objects.create(public_ip=fields[0],private_ip=fields[1],display_name=fields[2],data_center=fields[3],belong_business=fields[4],hold_type=fields[5],num_gpus=fields[8],gpu_type=fields[9]
+                                                 ,num_cpus=fields[10],cpu_type=fields[11],mem_total=fields[12],disk_total=fields[14],os_type=fields[15])
+     return redirect('/asset/alihost/')
 
 
 
